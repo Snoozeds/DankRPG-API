@@ -6,4 +6,4 @@ An API made using mainly node.js express.
 ```$ npm i canvas```\
 ```$ npm i node-gyp```\
 ```$ npm i canvas-constructor```\
-```$ npm i express-rate-limit```\
+```$ npm i express-rate-limit```
