@@ -174,6 +174,27 @@ app.get('/panda', limiter, (req, res) => {
     });
 });
 
+// Mock text
+app.get('/memes/mock/:text', (req, res) => {
+    
+    let text = req.params.text;
+    
+        text = text.trim();
+        let copy = "";
+        for (i = 0; i < text.length; i++) {
+          let char = text.substring(i, i + 1);
+          if (i % 2 === 0) {
+            char = char.toLowerCase();
+          } else {
+            char = char.toUpperCase();
+          }
+          copy = copy.concat(char);
+        }
+      res.status(200).send({
+        output: copy    
+      })
+})
+
 // Listen on port
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
 
