@@ -170,7 +170,7 @@ app.get('/animals/dogfact', limiter, (req, res) => {
 app.get('/panda', limiter, (req, res) => {
     
     res.status(200).send({
-        url: "https://dankrpg.xyz/api/pandas/" + Math.floor(Math.random()*201) +  ".jpg"
+        url: "https://dankrpg.xyz/api/pandas/" + Math.floor(Math.random()*101) +  ".jpg"
     });
 });
 
