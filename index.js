@@ -166,6 +166,14 @@ app.get('/animals/dogfact', limiter, (req, res) => {
         });
 });
 
+// Random Panda
+app.get('/panda', limiter, (req, res) => {
+    
+    res.status(200).send({
+        url: "https://dankrpg.xyz/api/pandas/" + Math.floor(Math.random()*201) +  ".jpg"
+    });
+});
+
 // Listen on port
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
 
