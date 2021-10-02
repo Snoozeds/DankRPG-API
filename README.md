@@ -5,7 +5,7 @@ An API made using mainly node.js express.
 ```$ npm i express```\
 ```$ npm i canvas```\
 ```$ npm i node-gyp```\
-```$ npm i canvas-constructor```\ (canvas-constructor/cairo)
+```$ npm i canvas-constructor``` (canvas-constructor/cairo)\
 ```$ npm i express-rate-limit```
 
 # Extra Info:
