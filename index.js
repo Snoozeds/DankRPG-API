@@ -7,10 +7,8 @@ const { Canvas } = require('canvas-constructor/cairo')
 const canvas = require('canvas')
 const { env } = require('process')
 
-const { registerFont } = require('canvas');
-registerFont('impact.ttf', { family: 'Impact' });
-
 app.use(express.json() )
+
 
 
 // Rate limiter
@@ -192,8 +190,13 @@ app.get('/memes/mock/:text', (req, res) => {
         }
       res.status(200).send({
         output: copy    
-      })
-})
+      });
+});
+
+// Handler start
+var ball = require('./routes/8ball');
+
+app.use('/8ball',  ball);
 
 // Listen on port
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
