@@ -7,6 +7,9 @@ const { Canvas } = require('canvas-constructor/cairo')
 const canvas = require('canvas')
 const { env } = require('process')
 
+const { registerFont } = require('canvas');
+registerFont('impact.ttf', { family: 'Impact' });
+
 app.use(express.json() )
 
 
