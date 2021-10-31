@@ -12,4 +12,4 @@ An API made using mainly node.js express.
 
 `const { registerFont } = require('canvas');
 registerFont('impact.ttf', { family: 'Impact' });`
-and impact.tff are used for replit.
+and impact.ttf are used for replit.
