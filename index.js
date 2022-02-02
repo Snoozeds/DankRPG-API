@@ -9,6 +9,7 @@ const { env } = require('process')
 
 const { registerFont } = require('canvas');
 registerFont('impact.ttf', { family: 'Impact' });
+registerFont('sans.ttf', { family: 'sans' });
 
 app.use(express.json() )
 
@@ -16,8 +17,8 @@ app.use(express.json() )
 
 // Rate limiter
 const limiter = rateLimit({
-    windowMs: 100 * 60 * 100, // 10 minutes
-    max: 100, // 100 requests max every 10 minutes
+    windowMs: 100 * 60,  // 1 minute
+    max: 750, // 750 requests max every 1 minute
     message:"You are sending too many requests. Please try again later."
 })
 
@@ -96,6 +97,7 @@ app.get('/memes/smart/text1=:text1/text2=:text2', async(req, res) => {
 });
 
 //
+
 
 // Random Dog Fact
 app.get('/animals/dogfact', limiter, (req, res) => {
@@ -194,6 +196,33 @@ app.get('/memes/mock/:text', (req, res) => {
       res.status(200).send({
         output: copy    
       });
+});
+
+// Yt comment
+app.get('/comment/:text', limiter, async(req, res) => {
+    
+    let text = req.params.text
+    
+    const img = await canvas.loadImage('https://i.ibb.co/hVWZnKJ/comment.png')
+    let image = new Canvas(292,77)
+    .printImage(img, 0, 0, 292, 77)
+    .setTextFont('15px sans')
+    .setColor('White')
+    .printText(text.substring(0, 25), 35, 23)
+    
+    .toBuffer();
+
+    res.set({'Content-Type': 'image/png'})
+    res.send(image)
+});
+
+// Anime hug
+
+app.get('/anime/hug', limiter, (req, res) => {
+    
+    res.status(200).send({
+        url: "https://dankrpg.xyz/api/hugs/" + Math.floor(Math.random()*15) +  ".gif"
+    });
 });
 
 // Handler start
