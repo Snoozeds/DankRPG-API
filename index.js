@@ -15,11 +15,17 @@ app.use(express.json() )
 
 
 
-// Rate limiter
+// Rate limiter (Updated to hopefully stop slow responses/ddosing.)
+const rateLimit = require('express-rate-limit') 
 const limiter = rateLimit({
-    windowMs: 100 * 60,  // 1 minute
-    max: 750, // 750 requests max every 1 minute
-    message:"You are sending too many requests. Please try again later."
+	windowMs: 60000, // 1 minute.
+	max: 100, // Max 100 requests a minute.
+	message: {
+  status: 429,
+  error: 'Too many requests in the last minute. Please slow down.'
+   },
+	 standardHeaders: true,
+	 legacyHeaders: false,
 })
 
 
