@@ -1,5 +1,4 @@
-# DankRPG-API
-An API made using mainly node.js express.
+### This project is now archived. The new version is visible [here](https://github.com/SnoozedsGithub/API-v2)
 
 # Dependencies:
 ```$ npm i express```\
