@@ -1,4 +1,4 @@
-### This project is now archived. The new version is visible [here](https://github.com/SnoozedsGithub/API-v2)
+### This project is now no longer updated. The new version is visible [here](https://github.com/SnoozedsGithub/API-v2)
 
 # Dependencies:
 ```$ npm i express```\
